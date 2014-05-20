@@ -1,33 +1,37 @@
 {
-  "name": "super-stream",
-  "version": "0.0.0",
-  "description": "transform stream utilities",
-  "main": "super-stream.js",
+  "name": "super-stream.map",
+  "version": "0.0.1",
+  "description": "transform through/map stream",
   "scripts": {
-    "test": "sh build.sh test"
+    "pretest": "npm install",
+    "test": "mocha ./spec/index.coffee --compilers coffee:coffee-script/register -R spec -t 1000",
+    "coveralls": "istanbul cover -x spec --report lcovonly _mocha -- --compilers coffee:coffee-script/register ./spec/index.coffee -R spec -t 1000",
+    "cover": "istanbul cover -x spec --report html _mocha -- --compilers coffee:coffee-script/register ./spec/index.coffee -R spec -t 1000"
   },
   "keywords": [
     "streams",
     "Transform",
     "Duplex",
     "through",
-    "map",
-    "Promise",
-    "pipeline",
     "Stream"
   ],
   "author": "Markuz GJ",
-  "repository": "git://github.com/markuz-gj/super-stream.git",
+  "repository": "git://github.com/markuz-gj/super-stream.map.git",
   "license": "MIT",
   "dependencies": {
-    "super-stream.through": "^0.0.0"
+    "lodash.defaults": "^2.4.1",
+    "lodash.isfunction": "^2.4.1",
+    "lodash.isnull": "^2.4.1",
+    "super-stream.through": "~0.0.x"
   },
   "devDependencies": {
     "chai": "^1.9.1",
     "coffee-script": "^1.7.1",
     "connect": "^2.15.0",
     "connect-livereload": "^0.4.0",
+    "coveralls": "^2.10.0",
     "es6-promise": "^1.0.0",
+    "etc-etc": "git+https://github.com/markuz-gj/etc-etc",
     "express": "^4.1.2",
     "gulp": "^3.6.2",
     "gulp-coffee": "^1.4.2",
@@ -35,11 +39,13 @@
     "gulp-livereload": "^1.5.0",
     "gulp-util": "^2.2.14",
     "istanbul": "^0.2.8",
-    "markdown-middleware": "^0.1.5",
+    "lodash.throttle": "^2.4.1",
+    "marked-middleware": "0.0.1",
     "mocha": "^1.18.2",
     "readable-stream": "^1.0.27-1",
     "sinon": "^1.9.1",
     "sinon-chai": "^2.5.0",
+    "string.prototype.repeat": "^0.2.0",
     "tiny-lr": "0.0.7"
   }
 }
